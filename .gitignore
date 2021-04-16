@@ -1,0 +1,12 @@
+
+.eslintcache
+node_modules
+public/favicon.ico
+public/logo192.png
+public/logo512.png
+public/manifest.json
+src/App.test.js
+src/logo.svg
+src/setupTests.js
+.idea
+/modules supplémentaires.zip

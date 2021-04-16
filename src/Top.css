@@ -1,0 +1,29 @@
+.top_contents{
+    display: flex;
+    justify-content: space-between;
+}
+.top_disconnect, .top_logo{
+    position: fixed;
+    object-fit: contain;
+}
+.top_logo{
+    margin-top: 5px;
+    left: 20px;
+    height: 40px;
+    width: auto;
+}
+.top_disconnect{
+    margin-top: 7px;
+    width: 36px;
+    height: auto;
+    right: 20px;
+    cursor: pointer;
+}
+
+.top_black{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    color: black;
+    background-color: #111;
+}
