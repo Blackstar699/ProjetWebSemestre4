@@ -21,13 +21,13 @@ function Login(props){
 
 function CreateAccount(props){
     return(
-        <form action={props.newUser} className={'box'}>
+        <form onSubmit={props.onSubmit} className={'box'}>
             <div className={'titleAuth'}>Créer un compte Cloneflix</div>
             <div className={'inputSBox'}>
-                <input className={'inputS'} type={'text'} name={'pseudo'} value={props.pseudo} onChange={props.handleChangePseudo} placeholder={'Pseudo'} />
+                <input className={'inputS'} type={'text'} name={'pseudo'} value={props.value_pseudo} onChange={props.onChange_pseudo} placeholder={'Pseudo'} />
             </div>
             <div className={'inputSBox'}>
-                <input className={'inputS'} type={'password'} name={'password'} value={props.password} placeholder={'Mot de passe'} />
+                <input className={'inputS'} type={'password'} name={'password'} value={props.value_password} onChange={props.onChange_password} placeholder={'Mot de passe'} />
             </div>
             <div className={'contentBox'}>
                 <div className={'text'} onClick={props.onClick}>Se connecter</div>
@@ -43,6 +43,7 @@ class LoginPage extends React.Component{
         this.handleLoginClick = this.handleLoginClick.bind(this);
         this.handleCreateClick = this.handleCreateClick.bind(this);
         this.handleChangePseudo = this.handleChangePseudo.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
         this.newUser = this.newUser.bind(this);
         this.state = {
             page: false,
@@ -81,7 +82,7 @@ class LoginPage extends React.Component{
         console.log(this.state.pseudo);
     }
 
-    handleChangePassword = (event) => {
+    handleChangePassword(event){
         this.setState({password: event.target.value});
         console.log(this.state.password);
     }
@@ -90,10 +91,10 @@ class LoginPage extends React.Component{
         let display;
         const page = this.state.page;
         if(page){
-            display = <Login value={this.state.pseudo} onChange={this.handleChangePseudo} onClick={this.handleLoginClick} />;
+            display = <Login onClick={this.handleLoginClick} />;
         }
         else{
-            display = <CreateAccount onClick={this.handleCreateClick} />;
+            display = <CreateAccount onSubmit={this.newUser} value_pseudo={this.state.pseudo} value_password={this.state.password} onChange_pseudo={this.handleChangePseudo} onChange_password={this.handleChangePassword} onClick={this.handleCreateClick} />;
         }
         return(
             <div className={'authBox'}>
